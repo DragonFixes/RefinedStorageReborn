@@ -250,6 +250,7 @@ public class ModInitializer extends AbstractModInitializer {
             eventBus.addListener(ClientModInitializer::onRegisterBlockStateModels);
             eventBus.addListener(ClientModInitializer::onRegisterMenuScreens);
             eventBus.addListener(ClientModInitializer::onRegisterKeyMappings);
+            eventBus.addListener(ClientModInitializer::onRegisterRenderPipelines);
             eventBus.addListener(ClientModInitializer::onRegisterTooltipFactories);
             eventBus.addListener(ClientModInitializer::registerRangeItemProperties);
             eventBus.addListener(ClientModInitializer::registerConditionalItemProperties);

@@ -13,7 +13,7 @@ import static com.refinedmods.refinedstorage.common.util.IdentifierUtil.MOD_ID;
 import static com.refinedmods.refinedstorage.common.util.IdentifierUtil.createIdentifier;
 
 public final class RenderTypes {
-    private static final RenderPipeline DISK_LEDS_PIPELINE = RenderPipeline
+    public static final RenderPipeline DISK_LEDS_PIPELINE = RenderPipeline
         .builder(RenderPipelines.GLOBALS_SNIPPET)
         .withBindGroupLayout(BindGroupLayouts.PROJECTION)
         .withBindGroupLayout(BindGroupLayouts.DYNAMIC_TRANSFORMS)

@@ -34,6 +34,7 @@ import com.refinedmods.refinedstorage.neoforge.storage.diskinterface.ForgeDiskIn
 import com.refinedmods.refinedstorage.neoforge.storage.portablegrid.ForgePortableGridBlockEntityRenderer;
 import com.refinedmods.refinedstorage.neoforge.storage.portablegrid.PortableGridItemModel;
 import com.refinedmods.refinedstorage.neoforge.storage.portablegrid.PortableGridUnbakedBlockStateModel;
+import com.refinedmods.refinedstorage.neoforge.support.render.RenderTypes;
 
 import java.util.List;
 
@@ -55,6 +56,7 @@ import net.neoforged.neoforge.client.event.RegisterItemModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent;
+import net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent;
 import net.neoforged.neoforge.client.event.RegisterSelectItemModelPropertyEvent;
 import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.client.settings.KeyModifier;
@@ -122,6 +124,11 @@ public final class ClientModInitializer extends AbstractClientModInitializer {
                 e.register(type, factory::create);
             }
         });
+    }
+
+    @SubscribeEvent
+    public static void onRegisterRenderPipelines(final RegisterRenderPipelinesEvent e) {
+        e.registerPipeline(RenderTypes.DISK_LEDS_PIPELINE);
     }
 
     @SubscribeEvent
