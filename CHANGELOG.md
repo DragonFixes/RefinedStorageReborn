@@ -7,7 +7,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+-   Ported to Minecraft 26.3.
+
 ### Fixed
+
+-   Disk LEDs showing a missing texture on the Disk Drive and Disk Interface items.
 
 -   Showing pins even if the Grid is inactive.
 -   Crash when another mod tries to extract zero amount out of an Interface, on Fabric.
