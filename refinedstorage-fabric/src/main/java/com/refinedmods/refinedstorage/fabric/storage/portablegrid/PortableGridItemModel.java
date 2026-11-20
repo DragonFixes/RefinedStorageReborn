@@ -36,9 +36,9 @@ import org.joml.Vector3f;
 import org.jspecify.annotations.Nullable;
 
 public class PortableGridItemModel implements ItemModel {
-    private final ItemQuadsCache itemQuadsCache = new ItemQuadsCache();
     private static final Vector3f MOVE_TO_DISK_LOCATION = new Vector3f(0, -12 / 16F, 9 / 16F);
 
+    private final ItemQuadsCache itemQuadsCache = new ItemQuadsCache();
     private final List<BakedQuad> activeBaseQuads;
     private final List<BakedQuad> inactiveBaseQuads;
     private final Map<Item, List<BakedQuad>> diskQuadsByItem;

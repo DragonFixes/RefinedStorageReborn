@@ -5,6 +5,7 @@ import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
 import java.util.Optional;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -20,7 +21,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector2i;
 import org.jspecify.annotations.Nullable;
-import com.mojang.blaze3d.platform.InputConstants;
 
 import static com.refinedmods.refinedstorage.common.util.IdentifierUtil.createTranslation;
 

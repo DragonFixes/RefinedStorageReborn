@@ -4,7 +4,6 @@ import com.refinedmods.refinedstorage.common.content.Blocks;
 import com.refinedmods.refinedstorage.common.content.Tags;
 import com.refinedmods.refinedstorage.common.support.RecoloringRecipe;
 
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeProvider;

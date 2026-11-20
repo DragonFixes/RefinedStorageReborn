@@ -2,6 +2,7 @@ package com.refinedmods.refinedstorage.common.autocrafting.preview;
 
 import com.refinedmods.refinedstorage.api.autocrafting.preview.TreePreview;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
@@ -9,7 +10,6 @@ import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import org.jspecify.annotations.Nullable;
-import com.mojang.blaze3d.platform.InputConstants;
 
 class FullscreenTreePreviewScreen extends Screen {
     private final Screen parent;
