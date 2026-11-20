@@ -112,6 +112,7 @@ import com.refinedmods.refinedstorage.neoforge.grid.view.ForgeItemGridResourceTy
 import com.refinedmods.refinedstorage.neoforge.importer.ForgeImporterBlockEntity;
 import com.refinedmods.refinedstorage.neoforge.importer.ResourceHandlerImporterTransferStrategyFactory;
 import com.refinedmods.refinedstorage.neoforge.networking.ForgeCableBlockEntity;
+import com.refinedmods.refinedstorage.neoforge.recipemod.jei.NeoForgeJeiIntegration;
 import com.refinedmods.refinedstorage.neoforge.storage.diskdrive.ForgeDiskDriveBlockEntity;
 import com.refinedmods.refinedstorage.neoforge.storage.diskinterface.ForgeDiskInterfaceBlockEntity;
 import com.refinedmods.refinedstorage.neoforge.storage.externalstorage.ForgeExternalStorageBlockEntity;
@@ -242,6 +243,7 @@ public class ModInitializer extends AbstractModInitializer {
         registerSounds(eventBus);
         registerRecipeSerializers(eventBus);
         registerTickHandler();
+        NeoForgeJeiIntegration.initIfLoaded(RefinedStorageApi.INSTANCE);
 
         if (FMLEnvironment.getDist() == Dist.CLIENT) {
             AbstractClientModInitializer.initializeClientPlatformApi();

@@ -15,6 +15,13 @@ dependencyResolutionManagement {
             // Fabric libraries built for the Minecraft version targeted in build-logic/src/main/kotlin/versions.kt.
             version("cloth-config-fabric", "26.3.158")
             version("modmenu", "21.0.1")
+            // See: https://maven.blamejared.com/mezz/jei/
+            version("jei", "31.18.0.118")
+            library("jei-common-api", "mezz.jei", "jei-26.3-common-api").versionRef("jei")
+            library("jei-neoforge-api", "mezz.jei", "jei-26.3-neoforge-api").versionRef("jei")
+            library("jei-neoforge", "mezz.jei", "jei-26.3-neoforge").versionRef("jei")
+            library("jei-fabric-api", "mezz.jei", "jei-26.3-fabric-api").versionRef("jei")
+            library("jei-fabric", "mezz.jei", "jei-26.3-fabric").versionRef("jei")
         }
     }
 }

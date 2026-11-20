@@ -776,5 +776,15 @@
   "advancements.refinedstorage.wireless_monitoring": "Monitoramento sem fio",
   "advancements.refinedstorage.wireless_monitoring.description": "Verifique o status de suas tarefas de Auto-fabricação sem fio com um Monitor de Auto-fabricação sem fio",
   "advancements.refinedstorage.autocrafting_on_demand": "Auto-fabricação sob demanda",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "Use um Aprimoramento de Auto-fabricação em uma Interface, Exportador ou Construtor para Auto-fabricar recursos sob demanda"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "Use um Aprimoramento de Auto-fabricação em uma Interface, Exportador ou Construtor para Auto-fabricar recursos sob demanda",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "Sincronize o texto da caixa de pesquisa com o filtro JEI.",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI bidirecional",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "Sincronize o texto da caixa de pesquisa com o filtro JEI e o filtro JEI para o texto da caixa de pesquisa.",
+  "gui.refinedstorage.jei.transfer.missing_but_all_autocraftable": "Itens faltantes, todos são auto-fabricáveis",
+  "gui.refinedstorage.jei.transfer.missing_but_some_autocraftable": "Itens faltantes, alguns são auto-fabricíveis",
+  "gui.refinedstorage.jei.transfer.ctrl_click_to_autocraft": "CTRL + clique para auto-fabricar",
+  "gui.refinedstorage.jei.transfer.cmd_click_to_autocraft": "CMD + clique para criar automaticamente",
+  "gui.refinedstorage.jei.transfer.all_autocraftable": "Todos são auto-fabricáveis",
+  "gui.refinedstorage.jei.transfer.some_autocraftable": "Alguns são auto-fabricáveis",
+  "alias.refinedstorage.jei.refinedstorage1_disk_manipulator": "Manipulador de Disco"
 }

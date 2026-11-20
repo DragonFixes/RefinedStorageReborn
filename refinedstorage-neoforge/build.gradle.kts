@@ -2,6 +2,16 @@ plugins {
     id("com.refinedmods.refinedarchitect.neoforge")
 }
 
+repositories {
+    maven {
+        name = "JEI"
+        url = uri("https://maven.blamejared.com/")
+        content {
+            includeGroup("mezz.jei")
+        }
+    }
+}
+
 refinedarchitect {
     modId = "refinedstorage"
     neoForge()
@@ -31,6 +41,9 @@ dependencies {
     compileOnly(project(":refinedstorage-network"))
     compileOnly(project(":refinedstorage-autocrafting-api"))
     compileOnly(project(":refinedstorage-query-parser"))
+    compileOnly(libs.jei.common.api)
+    compileOnly(libs.jei.neoforge.api)
+    runtimeOnly(libs.jei.neoforge)
     commonJava(project(path = ":refinedstorage-common", configuration = "commonJava"))
     commonResources(project(path = ":refinedstorage-common", configuration = "commonResources"))
     commonJava(project(path = ":refinedstorage-common-api", configuration = "commonJava"))

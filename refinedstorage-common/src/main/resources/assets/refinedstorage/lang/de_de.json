@@ -776,5 +776,8 @@
   "advancements.refinedstorage.wireless_monitoring": "Drahtloser Monitor",
   "advancements.refinedstorage.wireless_monitoring.description": "Prüfe den Fortschritt der Autocrafting-Aufgaben mithilfe des drahtlosen Autocrafting Monitors",
   "advancements.refinedstorage.autocrafting_on_demand": "Autocrafting auf Anfrage",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "Benutze ein Autohersteller Upgrade in einem Interface, Exporteur oder Konstruktor um Ressourcen auf Anfrage herzustellen"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "Benutze ein Autohersteller Upgrade in einem Interface, Exporteur oder Konstruktor um Ressourcen auf Anfrage herzustellen",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter.",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI beidseitig",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter und den JEI Filter mit dem Suchfeld Text."
 }

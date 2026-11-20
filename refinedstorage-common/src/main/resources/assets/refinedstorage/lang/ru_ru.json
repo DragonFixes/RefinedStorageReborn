@@ -776,5 +776,14 @@
   "advancements.refinedstorage.wireless_monitoring": "Беспроводное наблюдение",
   "advancements.refinedstorage.wireless_monitoring.description": "Проверьте состояние ваших автокрафтов с помощью беспроводного монитора автокрафта",
   "advancements.refinedstorage.autocrafting_on_demand": "Автокрафт по запросу",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "Используйте улучшение \"Автокрафт\" в интерфейсе, шине экспорта или шине формирования для автокрафта ресурсов по запросу"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "Используйте улучшение \"Автокрафт\" в интерфейсе, шине экспорта или шине формирования для автокрафта ресурсов по запросу",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "Синхронизировать строку поиска с фильтром JEI.",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI двустороний",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "Синхронизировать текст строки поиска с фильтром JEI, а фильтр JEI - с текстом строки поиска.",
+  "gui.refinedstorage.jei.transfer.missing_but_all_autocraftable": "Отсутствуют элементы, все они могут быть автоматически скрафчены",
+  "gui.refinedstorage.jei.transfer.missing_but_some_autocraftable": "Отсутствуют элементы, некоторые из них могут быть автоматически скрафчены",
+  "gui.refinedstorage.jei.transfer.ctrl_click_to_autocraft": "CTRL + клик для автокрафта",
+  "gui.refinedstorage.jei.transfer.all_autocraftable": "Всё можно скрафтить автоматически",
+  "gui.refinedstorage.jei.transfer.some_autocraftable": "Некоторые из них доступны для автокрафта",
+  "alias.refinedstorage.jei.refinedstorage1_disk_manipulator": "Дисковый манипулятор"
 }

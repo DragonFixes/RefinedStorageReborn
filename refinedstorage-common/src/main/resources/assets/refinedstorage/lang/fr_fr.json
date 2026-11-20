@@ -776,5 +776,14 @@
   "advancements.refinedstorage.wireless_monitoring": "Contrôle à distance",
   "advancements.refinedstorage.wireless_monitoring.description": "Vérifiez l'état de vos tâches d'artisanat automatique à distance avec un moniteur d'artisanat automatique sans fil",
   "advancements.refinedstorage.autocrafting_on_demand": "Artisanat automatique sur demande",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "Utilisez une Amélioration d'artisanat automatique dans une Interface, un Exportateur ou un Constructeur pour fabriquer automatiquement des ressources sur demandes"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "Utilisez une Amélioration d'artisanat automatique dans une Interface, un Exportateur ou un Constructeur pour fabriquer automatiquement des ressources sur demandes",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "Synchroniser la recherche avec le filtre de JEI.",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI bidirectionnel",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "Synchroniser la recherche avec le filtre de JEI et le filtre de JEI avec la recherche.",
+  "gui.refinedstorage.jei.transfer.missing_but_all_autocraftable": "Objets manquants, tous peuvent être produits automatiquement",
+  "gui.refinedstorage.jei.transfer.missing_but_some_autocraftable": "Objets manquants, certains peuvent être produits automatiquement",
+  "gui.refinedstorage.jei.transfer.ctrl_click_to_autocraft": "Ctrl + clic pour produire automatiquement",
+  "gui.refinedstorage.jei.transfer.all_autocraftable": "Tous peuvent être produits automatiquement",
+  "gui.refinedstorage.jei.transfer.some_autocraftable": "Certains peuvent être produits automatiquement",
+  "alias.refinedstorage.jei.refinedstorage1_disk_manipulator": "Manipulateur de Disques"
 }

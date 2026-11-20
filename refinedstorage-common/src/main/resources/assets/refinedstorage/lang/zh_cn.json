@@ -776,5 +776,14 @@
   "advancements.refinedstorage.wireless_monitoring": "无线监控",
   "advancements.refinedstorage.wireless_monitoring.description": "使用无线合成监视器随时随地查看自动合成任务状态",
   "advancements.refinedstorage.autocrafting_on_demand": "按需合成",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "在 物品传输接口、输出总线或成型面板中使用自动合成升级，以按需合成所需资源"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "在 物品传输接口、输出总线或成型面板中使用自动合成升级，以按需合成所需资源",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "将搜索框文本同步到 JEI 过滤器。",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI 双向",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "将搜索框文本同步到 JEI 过滤器，并将 JEI 过滤器同步到搜索框文本。",
+  "gui.refinedstorage.jei.transfer.missing_but_all_autocraftable": "缺少物品，但均可自动合成",
+  "gui.refinedstorage.jei.transfer.missing_but_some_autocraftable": "缺少物品，部分可自动合成",
+  "gui.refinedstorage.jei.transfer.ctrl_click_to_autocraft": "CTRL + 单击以自动合成",
+  "gui.refinedstorage.jei.transfer.all_autocraftable": "均可自动合成",
+  "gui.refinedstorage.jei.transfer.some_autocraftable": "部分可自动合成",
+  "alias.refinedstorage.jei.refinedstorage1_disk_manipulator": "磁盘控制器"
 }

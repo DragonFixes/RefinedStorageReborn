@@ -779,5 +779,16 @@
   "advancements.refinedstorage.wireless_monitoring": "Wireless monitoring",
   "advancements.refinedstorage.wireless_monitoring.description": "Check the status of your autocrafting tasks wirelessly with a Wireless Autocrafting Monitor",
   "advancements.refinedstorage.autocrafting_on_demand": "Autocrafting on demand",
-  "advancements.refinedstorage.autocrafting_on_demand.description": "Use an Autocrafting Upgrade in an Interface, Exporter or Constructor to autocraft resources on demand"
+  "advancements.refinedstorage.autocrafting_on_demand.description": "Use an Autocrafting Upgrade in an Interface, Exporter or Constructor to autocraft resources on demand",
+  "gui.refinedstorage.jei.grid.synchronizer": "JEI",
+  "gui.refinedstorage.jei.grid.synchronizer.help": "Sync the search box text to the JEI filter.",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way": "JEI two-way",
+  "gui.refinedstorage.jei.grid.synchronizer.two_way.help": "Sync the search box text to the JEI filter, and the JEI filter to the search box text.",
+  "gui.refinedstorage.jei.transfer.missing_but_all_autocraftable": "Missing items, all are autocraftable",
+  "gui.refinedstorage.jei.transfer.missing_but_some_autocraftable": "Missing items, some are autocraftable",
+  "gui.refinedstorage.jei.transfer.ctrl_click_to_autocraft": "CTRL + click to autocraft",
+  "gui.refinedstorage.jei.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
+  "gui.refinedstorage.jei.transfer.all_autocraftable": "All are autocraftable",
+  "gui.refinedstorage.jei.transfer.some_autocraftable": "Some are autocraftable",
+  "alias.refinedstorage.jei.refinedstorage1_disk_manipulator": "Disk Manipulator"
 }
