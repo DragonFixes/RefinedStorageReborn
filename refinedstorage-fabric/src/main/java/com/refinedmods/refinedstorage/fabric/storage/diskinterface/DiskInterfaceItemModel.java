@@ -146,8 +146,9 @@ public class DiskInterfaceItemModel implements ItemModel {
             final ResolvedModel baseModel = baker.getModel(DiskInterfaceRenderingProperties.getActiveBaseModel(color));
             final List<BakedQuad> baseQuads = baseModel
                 .bakeTopGeometry(baseModel.getTopTextureSlots(), baker, BlockModelRotation.IDENTITY).getAll();
-            final List<BakedQuad> ledQuads = baker.getModel(DiskInterfaceRenderingProperties.INACTIVE_LED_MODEL)
-                .bakeTopGeometry(baseModel.getTopTextureSlots(), baker, BlockModelRotation.IDENTITY).getAll();
+            final ResolvedModel ledModel = baker.getModel(DiskInterfaceRenderingProperties.INACTIVE_LED_MODEL);
+            final List<BakedQuad> ledQuads = ledModel
+                .bakeTopGeometry(ledModel.getTopTextureSlots(), baker, BlockModelRotation.IDENTITY).getAll();
             final Map<Item, List<BakedQuad>> diskQuads = RefinedStorageClientApi.INSTANCE.getDiskModelsByItem()
                 .entrySet()
                 .stream()
