@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 -   Ported to Minecraft 26.3.
+-   JEI integration is built in on NeoForge; the separate addon is no longer needed.
 
 ### Fixed
 
