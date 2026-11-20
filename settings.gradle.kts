@@ -12,33 +12,22 @@ dependencyResolutionManagement {
         create("libs") {
             val refinedarchitectVersion: String by settings
             from("com.refinedmods.refinedarchitect:refinedarchitect-versioning:${refinedarchitectVersion}")
+            // Fabric libraries built for the Minecraft version targeted in build-logic/src/main/kotlin/versions.kt.
+            version("cloth-config-fabric", "26.3.158")
+            version("modmenu", "21.0.1")
         }
     }
 }
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         mavenCentral()
         gradlePluginPortal()
         maven {
-            name = "Refined Architect"
-            url = uri("https://maven.creeperhost.net")
-            content {
-                includeGroupAndSubgroups("com.refinedmods.refinedarchitect")
-            }
-        }
-        maven {
             name = "Fabric"
             url = uri("https://maven.fabricmc.net/")
         }
-    }
-    val refinedarchitectVersion: String by settings
-    plugins {
-        id("com.refinedmods.refinedarchitect.root").version(refinedarchitectVersion)
-        id("com.refinedmods.refinedarchitect.base").version(refinedarchitectVersion)
-        id("com.refinedmods.refinedarchitect.common").version(refinedarchitectVersion)
-        id("com.refinedmods.refinedarchitect.neoforge").version(refinedarchitectVersion)
-        id("com.refinedmods.refinedarchitect.fabric").version(refinedarchitectVersion)
     }
 }
 
