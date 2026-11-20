@@ -20,7 +20,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector2i;
 import org.jspecify.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import static com.refinedmods.refinedstorage.common.util.IdentifierUtil.createTranslation;
 
@@ -258,7 +258,7 @@ public abstract class AbstractAmountScreen<T extends AbstractContainerMenu, N ex
             return true;
         }
         if (amountField != null
-            && (key == GLFW.GLFW_KEY_ENTER || key == GLFW.GLFW_KEY_KP_ENTER)
+            && (key == InputConstants.KEY_RETURN || key == InputConstants.KEY_NUMPADENTER)
             && amountField.isFocused()) {
             tryConfirmAndCloseToParent();
             return true;
@@ -270,7 +270,7 @@ public abstract class AbstractAmountScreen<T extends AbstractContainerMenu, N ex
     }
 
     protected final boolean tryClose(final int key) {
-        if (key == GLFW.GLFW_KEY_ESCAPE) {
+        if (key == InputConstants.KEY_ESCAPE) {
             close();
             return true;
         }
@@ -299,7 +299,7 @@ public abstract class AbstractAmountScreen<T extends AbstractContainerMenu, N ex
 
     private boolean tryCloseToParent() {
         if (parent != null) {
-            Minecraft.getInstance().setScreen(parent);
+            Minecraft.getInstance().gui.setScreen(parent);
             return true;
         }
         return false;

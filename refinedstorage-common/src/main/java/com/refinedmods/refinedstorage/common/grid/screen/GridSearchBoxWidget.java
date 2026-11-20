@@ -12,6 +12,7 @@ import com.refinedmods.refinedstorage.query.lexer.SyntaxHighlighter;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -19,6 +20,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextColor;
 
 class GridSearchBoxWidget extends SearchFieldWidget implements GridSearchBox {
     private final Set<Consumer<String>> listeners = new HashSet<>();
@@ -68,8 +70,10 @@ class GridSearchBoxWidget extends SearchFieldWidget implements GridSearchBox {
     }
 
     private Component toComponent(final SyntaxHighlightedCharacter character) {
-        final ChatFormatting color = ChatFormatting.getByName(character.getColor());
-        return Component.literal(character.getCharacter()).withStyle(color == null ? ChatFormatting.WHITE : color);
+        final TextColor color = TextColor.parseColor(character.getColor().toLowerCase(Locale.ROOT))
+            .result()
+            .orElse(TextColor.WHITE);
+        return Component.literal(character.getCharacter()).withColor(color);
     }
 
     private Lexer createLexer(final String text) {

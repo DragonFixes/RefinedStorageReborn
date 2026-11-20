@@ -16,6 +16,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,15 +60,17 @@ public abstract class AbstractStorageContainerBlockItem extends BlockItem {
     }
 
     @Override
-    protected boolean updateCustomBlockEntityTag(final BlockPos pos,
-                                                 final Level level,
-                                                 @Nullable final Player player,
-                                                 final ItemStack stack,
-                                                 final BlockState state) {
-        if (!level.isClientSide()) {
-            updateBlockEntityTag(pos, level, stack);
+    protected boolean placeBlock(final BlockPlaceContext context, final BlockState placementState) {
+        if (!super.placeBlock(context, placementState)) {
+            return false;
         }
-        return super.updateCustomBlockEntityTag(pos, level, player, stack, state);
+        // The block entity exists once the block is set, and the stack still holds its storage
+        // reference here: BlockItem#place consumes the stack only after this returns.
+        final Level level = context.getLevel();
+        if (!level.isClientSide()) {
+            updateBlockEntityTag(context.getClickedPos(), level, context.getItemInHand());
+        }
+        return true;
     }
 
     private void updateBlockEntityTag(final BlockPos pos,

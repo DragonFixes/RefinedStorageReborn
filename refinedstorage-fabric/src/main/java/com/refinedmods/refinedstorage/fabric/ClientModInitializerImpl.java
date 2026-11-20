@@ -86,7 +86,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import org.lwjgl.glfw.GLFW;
 
 import static com.refinedmods.refinedstorage.common.util.IdentifierUtil.createIdentifier;
 
@@ -314,7 +313,7 @@ public class ClientModInitializerImpl extends AbstractClientModInitializer imple
         KeyMappings.INSTANCE.setFocusSearchBar(KeyMappingHelper.registerKeyMapping(new KeyMapping(
             ContentNames.FOCUS_SEARCH_BAR_TRANSLATION_KEY,
             InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_TAB,
+            InputConstants.KEY_TAB,
             category
         )));
         KeyMappings.INSTANCE.setOpenWirelessGrid(KeyMappingHelper.registerKeyMapping(new KeyMapping(
