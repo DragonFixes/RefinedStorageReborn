@@ -312,25 +312,25 @@ public class ClientModInitializerImpl extends AbstractClientModInitializer imple
 
         KeyMappings.INSTANCE.setFocusSearchBar(KeyMappingHelper.registerKeyMapping(new KeyMapping(
             ContentNames.FOCUS_SEARCH_BAR_TRANSLATION_KEY,
-            InputConstants.Type.KEYSYM,
+            InputConstants.Type.KEYBOARD,
             InputConstants.KEY_TAB,
             category
         )));
         KeyMappings.INSTANCE.setOpenWirelessGrid(KeyMappingHelper.registerKeyMapping(new KeyMapping(
             ContentNames.OPEN_WIRELESS_GRID_TRANSLATION_KEY,
-            InputConstants.Type.KEYSYM,
+            InputConstants.Type.KEYBOARD,
             InputConstants.UNKNOWN.getValue(),
             category
         )));
         KeyMappings.INSTANCE.setOpenPortableGrid(KeyMappingHelper.registerKeyMapping(new KeyMapping(
             ContentNames.OPEN_PORTABLE_GRID_TRANSLATION_KEY,
-            InputConstants.Type.KEYSYM,
+            InputConstants.Type.KEYBOARD,
             InputConstants.UNKNOWN.getValue(),
             category
         )));
         KeyMappings.INSTANCE.setOpenWirelessAutocraftingMonitor(KeyMappingHelper.registerKeyMapping(new KeyMapping(
             ContentNames.OPEN_WIRELESS_AUTOCRAFTING_MONITOR_TRANSLATION_KEY,
-            InputConstants.Type.KEYSYM,
+            InputConstants.Type.KEYBOARD,
             InputConstants.UNKNOWN.getValue(),
             category
         )));

@@ -104,7 +104,9 @@ public final class PlatformImpl extends AbstractPlatform {
 
     public PlatformImpl(final ModContainer modContainer) {
         super(new MenuOpenerImpl(), new FluidStackFluidRenderer(), ItemGridInsertionStrategy::new);
-        modContainer.registerConfig(ModConfig.Type.COMMON, config.getSpec());
+        // FML names LOCAL configs "<modid>-local.toml"; the explicit name keeps loading the file
+        // that the COMMON config type used to write.
+        modContainer.registerConfig(ModConfig.Type.LOCAL, config.getSpec(), "refinedstorage-common.toml");
     }
 
     @Override
@@ -124,10 +126,7 @@ public final class PlatformImpl extends AbstractPlatform {
 
     @Override
     public boolean isKeyDown(final KeyMapping keyMapping) {
-        return !keyMapping.isUnbound() && InputConstants.isKeyDown(
-            Minecraft.getInstance().getWindow(),
-            keyMapping.getKey().getValue()
-        );
+        return !keyMapping.isUnbound() && InputConstants.isKeyDown(keyMapping.getKey().getValue());
     }
 
     @Override

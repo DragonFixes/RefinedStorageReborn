@@ -14,7 +14,9 @@ import java.util.function.Supplier;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.TagAppender;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -151,19 +153,27 @@ public class ItemTagsProvider extends BlockTagCopyingItemTagProvider {
             Blocks.INSTANCE.getAutocraftingMonitor().values().stream()
                 .map(block -> (Supplier<Item>) block::asItem)
                 .toList());
-        tag(WRENCH).add(Items.INSTANCE.getWrench()).replace(false);
-        tag(SILICON).add(Items.INSTANCE.getSilicon()).replace(false);
+        tag(WRENCH).add(key(Items.INSTANCE.getWrench())).replace(false);
+        tag(SILICON).add(key(Items.INSTANCE.getSilicon())).replace(false);
         tag(INGOTS)
-            .add(Items.INSTANCE.getQuartzEnrichedIron())
-            .add(Items.INSTANCE.getQuartzEnrichedCopper())
+            .add(key(Items.INSTANCE.getQuartzEnrichedIron()))
+            .add(key(Items.INSTANCE.getQuartzEnrichedCopper()))
             .replace(false);
     }
 
     private <T extends Item> void addAllToTag(final TagKey<Item> t, final Collection<Supplier<T>> items) {
-        tag(t).add(items.stream().map(Supplier::get).toArray(Item[]::new)).replace(false);
+        final TagAppender<Item> appender = tag(t);
+        items.forEach(item -> appender.add(key(item.get())));
+        appender.replace(false);
     }
 
     private void addAllToTag2(final TagKey<Item> t, final Collection<Supplier<BaseBlockItem>> items) {
-        tag(t).add(items.stream().map(Supplier::get).toArray(Item[]::new)).replace(false);
+        final TagAppender<Item> appender = tag(t);
+        items.forEach(item -> appender.add(key(item.get())));
+        appender.replace(false);
+    }
+
+    private static ResourceKey<Item> key(final Item item) {
+        return item.builtInRegistryHolder().key();
     }
 }

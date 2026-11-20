@@ -1,6 +1,7 @@
 package com.refinedmods.refinedstorage.fabric.storage.diskinterface;
 
 import com.refinedmods.refinedstorage.common.api.RefinedStorageClientApi;
+import com.refinedmods.refinedstorage.common.support.render.ItemQuadsCache;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,6 +38,7 @@ import static com.refinedmods.refinedstorage.common.storage.AbstractDiskContaine
 import static com.refinedmods.refinedstorage.fabric.storage.diskinterface.DiskInterfaceRenderingProperties.DISKS;
 
 public class DiskInterfaceItemModel implements ItemModel {
+    private final ItemQuadsCache itemQuadsCache = new ItemQuadsCache();
     private final List<BakedQuad> baseQuads;
     private final List<BakedQuad> ledQuads;
     private final Map<Item, List<BakedQuad>> diskQuadsByItem;
@@ -72,7 +74,7 @@ public class DiskInterfaceItemModel implements ItemModel {
         renderState.appendModelIdentityElement(this);
         final ItemStackRenderState.LayerRenderState layer = renderState.newLayer();
         modelRenderProperties.applyToLayer(layer, itemDisplayContext);
-        layer.prepareQuadList().addAll(baseQuads);
+        layer.setQuads(itemQuadsCache.get(baseQuads));
         final TypedEntityData<BlockEntityType<?>> customData = stack.get(DataComponents.BLOCK_ENTITY_DATA);
         if (customData == null) {
             return;
@@ -99,8 +101,7 @@ public class DiskInterfaceItemModel implements ItemModel {
         final ItemStackRenderState.LayerRenderState layer = renderState.newLayer();
         modelRenderProperties.applyToLayer(layer, itemDisplayContext);
         layer.setItemTransform(diskTransforms.get(itemDisplayContext).get(idx));
-        layer.prepareQuadList().addAll(diskQuads);
-        layer.prepareQuadList().addAll(ledQuads);
+        layer.setQuads(itemQuadsCache.get(diskQuads, ledQuads));
     }
 
     private static Matrix4f getOffsetTransform(final ItemTransform baseTransform) {

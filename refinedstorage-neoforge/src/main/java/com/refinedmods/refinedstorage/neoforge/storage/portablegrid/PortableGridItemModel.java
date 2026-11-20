@@ -6,6 +6,7 @@ import com.refinedmods.refinedstorage.common.storage.Disk;
 import com.refinedmods.refinedstorage.common.storage.portablegrid.PortableGridBlockItem;
 import com.refinedmods.refinedstorage.common.storage.portablegrid.PortableGridBlockItemRenderInfo;
 import com.refinedmods.refinedstorage.common.support.direction.OrientedDirection;
+import com.refinedmods.refinedstorage.common.support.render.ItemQuadsCache;
 import com.refinedmods.refinedstorage.common.util.ClientPlatformUtil;
 
 import java.util.Arrays;
@@ -35,6 +36,7 @@ import org.joml.Vector3f;
 import org.jspecify.annotations.Nullable;
 
 public class PortableGridItemModel implements ItemModel {
+    private final ItemQuadsCache itemQuadsCache = new ItemQuadsCache();
     private static final Vector3f MOVE_TO_DISK_LOCATION = new Vector3f(0, -12 / 16F, 9 / 16F);
 
     private final List<BakedQuad> activeBaseQuads;
@@ -73,7 +75,7 @@ public class PortableGridItemModel implements ItemModel {
         modelRenderProperties.applyToLayer(layer, itemDisplayContext);
         final PortableGridBlockItemRenderInfo renderInfo = PortableGridBlockItem.getRenderInfo(stack);
         renderState.appendModelIdentityElement(renderInfo);
-        layer.prepareQuadList().addAll(renderInfo.active() ? activeBaseQuads : inactiveBaseQuads);
+        layer.setQuads(itemQuadsCache.get(renderInfo.active() ? activeBaseQuads : inactiveBaseQuads));
         addDisk(renderState, itemDisplayContext, renderInfo.disk());
     }
 
@@ -89,8 +91,7 @@ public class PortableGridItemModel implements ItemModel {
         final ItemStackRenderState.LayerRenderState layer = renderState.newLayer();
         modelRenderProperties.applyToLayer(layer, itemDisplayContext);
         layer.setItemTransform(diskTransforms.get(itemDisplayContext));
-        layer.prepareQuadList().addAll(diskQuads);
-        layer.prepareQuadList().addAll(ledQuadsByState.get(disk.state()));
+        layer.setQuads(itemQuadsCache.get(diskQuads, ledQuadsByState.get(disk.state())));
     }
 
     private static Matrix4f getOffsetTransform(final ItemTransform baseTransform) {
