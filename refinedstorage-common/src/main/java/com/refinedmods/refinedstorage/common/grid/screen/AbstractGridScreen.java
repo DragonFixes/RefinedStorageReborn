@@ -8,14 +8,12 @@ import com.refinedmods.refinedstorage.api.resource.ResourceKey;
 import com.refinedmods.refinedstorage.api.resource.repository.ResourceRepository;
 import com.refinedmods.refinedstorage.api.storage.tracked.TrackedResource;
 import com.refinedmods.refinedstorage.common.Platform;
-import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
 import com.refinedmods.refinedstorage.common.api.RefinedStorageClientApi;
 import com.refinedmods.refinedstorage.common.api.grid.GridScrollMode;
 import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
 import com.refinedmods.refinedstorage.common.grid.AbstractGridContainerMenu;
 import com.refinedmods.refinedstorage.common.grid.AutocraftableResourceHint;
-import com.refinedmods.refinedstorage.common.grid.NoopGridSynchronizer;
 import com.refinedmods.refinedstorage.common.grid.screen.autocrafting.AutocraftableClientTooltipComponent;
 import com.refinedmods.refinedstorage.common.grid.screen.autocrafting.AutocraftingTaskStatusClientTooltipComponent;
 import com.refinedmods.refinedstorage.common.grid.view.ItemGridResource;
@@ -28,7 +26,6 @@ import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 import com.refinedmods.refinedstorage.common.support.stretching.AbstractStretchingScreen;
 import com.refinedmods.refinedstorage.common.support.tooltip.HelpClientTooltipComponent;
 import com.refinedmods.refinedstorage.common.support.tooltip.SmallTextClientTooltipComponent;
-import com.refinedmods.refinedstorage.common.support.widget.AutoSelectedSideButtonWidget;
 import com.refinedmods.refinedstorage.common.support.widget.History;
 import com.refinedmods.refinedstorage.common.support.widget.RedstoneModeSideButtonWidget;
 import com.refinedmods.refinedstorage.common.support.widget.SearchIconWidget;
@@ -152,7 +149,7 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
         addSideButton(resourceTypeSideButtonWidget);
         addSideButton(new SortingDirectionSideButtonWidget(getMenu()));
         addSideButton(new SortingTypeSideButtonWidget(getMenu()));
-        addSideButton(new AutoSelectedSideButtonWidget(searchField));
+        addSideButton(new SearchBoxModeSideButtonWidget(getMenu(), searchField));
 
         addRenderableWidget(new SearchIconWidget(
             leftPos + 79,
@@ -161,14 +158,7 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
             searchField
         ));
 
-        final boolean onlyHasNoopSynchronizer = RefinedStorageApi.INSTANCE.getGridSynchronizerRegistry()
-            .getAll()
-            .stream()
-            .allMatch(synchronizer -> synchronizer == NoopGridSynchronizer.INSTANCE);
-        if (!onlyHasNoopSynchronizer) {
-            addSideButton(new SynchronizationModeSideButtonWidget(getMenu()));
-            searchField.addListener(this::trySynchronizeFromGrid);
-        }
+        searchField.addListener(this::trySynchronizeFromGrid);
     }
 
     private void trySynchronizeFromGrid(final String text) {
