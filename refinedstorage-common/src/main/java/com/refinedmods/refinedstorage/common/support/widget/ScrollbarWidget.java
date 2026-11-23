@@ -4,6 +4,7 @@ import com.refinedmods.refinedstorage.common.Platform;
 
 import java.util.function.DoubleConsumer;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -125,7 +126,7 @@ public class ScrollbarWidget extends AbstractWidget {
             && mouseY >= getY()
             && mouseX <= getX() + width
             && mouseY <= getY() + height;
-        if (button == 0 && inBounds) {
+        if (button == InputConstants.MOUSE_BUTTON_LEFT && inBounds) {
             updateOffset(mouseY);
             clicked = true;
             return true;

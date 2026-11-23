@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -301,7 +302,10 @@ public abstract class AbstractBaseScreen<T extends AbstractContainerMenu> extend
             && canInteractWithResourceSlot(resourceSlot, event.x(), event.y())) {
             if (!tryOpenResourceAmountScreen(resourceSlot)
                 && getMenu() instanceof AbstractResourceContainerMenu resourceMenu) {
-                resourceMenu.sendResourceSlotChange(hoveredSlot.index, event.button() == 1);
+                resourceMenu.sendResourceSlotChange(
+                    hoveredSlot.index,
+                    event.button() == InputConstants.MOUSE_BUTTON_RIGHT
+                );
             }
             return true;
         }

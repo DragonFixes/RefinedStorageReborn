@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -759,7 +760,10 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
     public boolean mouseDragged(final MouseButtonEvent e, final double dx, final double dy) {
         final boolean canDrag = Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD;
         final boolean nothingOnCursor = getMenu().getCarried().isEmpty() && draggedPin == null;
-        if (e.button() == 0 && nothingOnCursor && canDrag && startDraggingPinnedResource()) {
+        if (e.button() == InputConstants.MOUSE_BUTTON_LEFT
+            && nothingOnCursor
+            && canDrag
+            && startDraggingPinnedResource()) {
             return true;
         } else if (draggedPin != null) {
             if (!isOverPinArea((int) e.x(), (int) e.y()) || getMenu().hasPin(draggedPin)) {
@@ -860,7 +864,10 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
                               final int clickedButton,
                               final ItemStack carriedStack) {
         final boolean inBounds = isOverStorageArea(mouseX, mouseY) || isOverPinArea(mouseX, mouseY);
-        return inBounds && !carriedStack.isEmpty() && (clickedButton == 0 || clickedButton == 1);
+        return inBounds
+            && !carriedStack.isEmpty()
+            && (clickedButton == InputConstants.MOUSE_BUTTON_LEFT
+                || clickedButton == InputConstants.MOUSE_BUTTON_RIGHT);
     }
 
     private boolean tryStartAutocrafting(final GridResource resource) {
@@ -873,10 +880,10 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
     }
 
     private void mouseClickedInGrid(final int clickedButton) {
-        final GridInsertMode mode = clickedButton == 1
+        final GridInsertMode mode = clickedButton == InputConstants.MOUSE_BUTTON_RIGHT
             ? GridInsertMode.SINGLE_RESOURCE
             : GridInsertMode.ENTIRE_RESOURCE;
-        final boolean tryAlternatives = clickedButton == 1;
+        final boolean tryAlternatives = clickedButton == InputConstants.MOUSE_BUTTON_RIGHT;
         getMenu().onInsert(mode, tryAlternatives);
     }
 
@@ -889,7 +896,7 @@ public abstract class AbstractGridScreen<T extends AbstractGridContainerMenu> ex
     }
 
     private static GridExtractMode getExtractMode(final int clickedButton) {
-        if (clickedButton == 1) {
+        if (clickedButton == InputConstants.MOUSE_BUTTON_RIGHT) {
             return GridExtractMode.HALF_RESOURCE;
         }
         return GridExtractMode.ENTIRE_RESOURCE;

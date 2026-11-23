@@ -36,7 +36,7 @@ public class SearchFieldWidget extends EditBox {
             && mouseY >= getY()
             && mouseY < getY() + height;
         setFocused(clickedWidget);
-        if (clickedWidget && event.button() == 1) {
+        if (clickedWidget && event.button() == InputConstants.MOUSE_BUTTON_RIGHT) {
             setValue("");
         } else if (wasFocused != isFocused()) {
             saveHistory();
