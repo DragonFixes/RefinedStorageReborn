@@ -11,10 +11,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 -   Ported to Minecraft 26.3.
 -   JEI integration is built in on NeoForge; the separate addon is no longer needed.
+-   The Grid search box auto-select and JEI sync buttons are one "Search box mode" button again, cycling through normal, JEI and JEI two-way, each with and without auto-select.
 
 ### Fixed
 
 -   Disk LEDs showing a missing texture on the Disk Drive and Disk Interface items.
+-   Left and right clicks being swapped in GUIs on Minecraft 26.3, such as left clicking an item into the Grid only inserting 1.
 
 -   Showing pins even if the Grid is inactive.
 -   Crash when another mod tries to extract zero amount out of an Interface, on Fabric.
