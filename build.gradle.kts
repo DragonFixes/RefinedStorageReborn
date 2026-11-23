@@ -21,7 +21,8 @@ subprojects {
         from(tasks.withType<Jar>())
         into(deployDir)
     }
-    tasks.matching { it.name == "build" }.configureEach {
+    // assemble as well as build, so the deploy folder is refreshed even when checks fail.
+    tasks.matching { it.name == "assemble" || it.name == "build" }.configureEach {
         finalizedBy(deployJars)
     }
 }
